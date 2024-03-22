@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Work+Sans:ital,wght@0,400;0,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+$White: hsl(0, 0%, 100%);
+$Light-pink: hsl(275, 100%, 97%);
+$Grayish-purple: hsl(292, 16%, 49%);
+$Dark-purple: hsl(292, 42%, 14%);
+$Font-size-paragraphs: 16px;
+$font-family: 'Work Sans', sans-serif;
+$font-weight: (
+    'regular': 400,
+    'medium': 600,
+    'bold': 700
+);
+
+body {
+    font-family: $font-family;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-top {
+    min-height: 45%;
+    background-image: url('/assets/images/background-pattern-desktop.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-bottom {
+    background-color: $Light-pink;
+    height: 55%;
+
+    .main-bottom__accord {
+        background-color: $White;
+        width: clamp(320px, 45vw, 600px);
+        margin-inline: auto;
+        padding: 2.5rem 1.5rem;
+        border-radius: 18px;
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+        transform: translateY(-150px);
+
+        h1 {
+            // position: relative;
+            color: $Dark-purple;
+            font-size: 3rem;
+            line-height: 2;
+        }
+    }
+}
+
+h1::before {
+    content: url(/assets/images/icon-star.svg);
+    margin-right: 1.5rem;
+}
+
+.accords {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accords__child {
+    width: 100%;
+}
+
+.accord-child__top {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.answer {
+    position: relative;
+    overflow: hidden;
+
+    .reply {
+        font-size: $Font-size-paragraphs;
+        font-weight: map-get($font-weight, regular );
+        line-height: 1.5;
+        position: absolute;
+        transition: 400ms ease;
+        color: $Grayish-purple;
+        padding-bottom: 1rem;
+    }
+}
+
+.accords__child:not(.line) {
+    border-bottom: 1px solid $Light-pink;
+}
+
+.showMe {
+    transition: 400ms all;
+    position: unset !important;
+    top: unset !important;
+}
